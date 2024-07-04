@@ -61,6 +61,10 @@ print('''
     .startswith(str2)                   # 判断字符串是否以str2开头
     .endswith(str2)                     # 判断字符串是否以str2结尾
     .replace(str2,str3)                 # 将所有的str2替换为str3
+
+【String类型转换】
+ string ====> int、list、set、tuple类型，转换为list、set、tuple时则按照字符拆分
+ int、list、set、tuple、dict、set类型  ====>  string类型，只不过list、set、tuple、dict、set转换时就是直接在其外边加了双引号
 """
 
 # 0. 基础数据类型，在python中也是引用型变量

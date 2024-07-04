@@ -7,12 +7,16 @@
 【符号运算】
    element1 in set1         # 判断元素是否在set中
    set1 == set2             # 判断set1和set2中的元素是否完全一致（只有元素一直即相等，无需顺序一直
-   set1 - set2              # 差集。返回set1和set2中不同的元素
+   set1 - set2              # 差集。返回set1中，与set2不同的元素（区别是谁减谁）
     set1.difference(set2)      作用同减号
+    set1.difference_update(set2)找到差集并赋值给set1，直接改变set1中的值
+   set1 ^ set2              # 对称差集，返回两个集合中的不同元素
+    (set1|set2)-(set1&set2)     作用相当于对称差集
    set1 & set2              # 交集，返回set1和set2中相同的元素
     set1.intersection(set2)    作用同&号
    set1 | set2              # 并集
     set1.union(set2)           作用同|号
+
 【类型转换】
    set(list1)            # 将list1转换为set，并去除其中的重复元素
 【增】
@@ -25,10 +29,12 @@
     .discard(element1)     # 类似remove，删除指定元素，若指定元素不存在不会报错
    .pop()                # 随机删除元素，但在元素中通常会去删除第一个元素
    .clear()              # 清空集合
-【】
-
 
 """
 set1 = {1, 2, 3}
 set2 = {2, 1, 3}
 print(set1 == set2)
+
+print(id(set1))
+set1.add(4)
+print(id(set1))

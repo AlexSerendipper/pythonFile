@@ -29,6 +29,11 @@
    >pip install -r requirements.txt，使用pip安装requirements,txt中依赖的文件
  注意：使用pip安装的外置包位于\Lib\site-packages中
 
+【pycharm相关】
+ 使用pycharm创建项目需要指定编译器
+   setting-project-python interpreter-new environment，创建一个新的python环境。。这样指定后会创建一个.venv文件在项目中，表示新的python解释环境
+     建议使用existing interpreter，找到本机安装python时的python.exe，使用本地环境
+
 【基础函数】
  type(变量名)                    // 返回变量类型
  print("内容",变量名)            // 输出，可以使用逗号输出多个参数，多个参数输出时默认分隔符为空格，结尾默认为\n
