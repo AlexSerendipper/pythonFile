@@ -34,3 +34,5 @@ dict1 = {'zzj': 100, 'lzy': 666}
 print(dict1.items())
 for value1 in dict1.values():
     print(value1)
+
+print(enumerate(dict1))

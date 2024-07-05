@@ -5,7 +5,6 @@
 
 【常用方法】
 【符号运算】
-   element1 in set1         # 判断元素是否在set中
    set1 == set2             # 判断set1和set2中的元素是否完全一致（只有元素一直即相等，无需顺序一直
    set1 - set2              # 差集。返回set1中，与set2不同的元素（区别是谁减谁）
     set1.difference(set2)      作用同减号
@@ -30,11 +29,22 @@
    .pop()                # 随机删除元素，但在元素中通常会去删除第一个元素
    .clear()              # 清空集合
 
+【set类型转换】
+ list、tuple可以转换为set
+
 """
 set1 = {1, 2, 3}
 set2 = {2, 1, 3}
 print(set1 == set2)
-
+# 集合属于不可变数据类型
 print(id(set1))
 set1.add(4)
 print(id(set1))
+# 集合遍历1
+for i in set2:
+    print(i)
+# 集合遍历2，实际上枚举类型就是遍历时把集合{2, 1, 3}转换为[(0,1),(0,2),(0,3)]的格式，见列表
+for idx, val in enumerate(set2):
+    print(idx, val)
+
+

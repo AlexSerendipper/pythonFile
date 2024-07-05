@@ -36,6 +36,7 @@
 
 【基础函数】
  type(变量名)                    // 返回变量类型
+  isinstance(变量名, 类型)        // 判断变量类型
  print("内容",变量名)            // 输出，可以使用逗号输出多个参数，多个参数输出时默认分隔符为空格，结尾默认为\n
   print(变量名1,变量名2,sep="#")          // 输出，多个参数输出时指定分隔符
   print(变量名1,end=" ")          // 输出，多个参数输出时指定结尾！
@@ -49,3 +50,8 @@ random.randint(a,b)              # 产生[a,b]之间的随机数
 
 """
 print("hello world")
+tuple1 = (1, 2, 3)
+
+# 判断变量类型的两种方式
+print(type(tuple1) == tuple)
+print(isinstance(tuple1, tuple))

@@ -5,9 +5,6 @@
  列表中可以包含列表，即二维列表
 
 【常用方法】
-   str1 in list1           # 判断str1是否为列表中的元素
-   max(list1)              # 找出列表中的最大值
-    sum(list1)               # 对列表中的元素进行求和
    sorted(list1,reverse=True)          # 对列表中的元素进行排序，默认为升序。改变了原列表
     .sort()                             # 对列表中的元素进行排序，默认为升序。改变了原列表
    list1 * x               # 将列表中的元素复制x倍
@@ -15,7 +12,6 @@
      list(str1)             # 将字符串拆分成单个字符，并转换为列表。。。整型对象无法进行转换！
    .reverse()             # 反转列表元素(改变原列表！！！
    .count(element1)       # 判断列表中出现element1的次数
-   enumerate(list1)       # 以(idx,val)的格式枚举列表
 
 【添加】
  list1.append()             # 从list1尾部追加
