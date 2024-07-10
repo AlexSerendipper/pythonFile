@@ -10,7 +10,7 @@ result = reduce(key1, tuple1, 30)          # 计算过程实际上就是 30-1 = 
                                             如果没有初始值，就是1-2=-1
                                                               -1-3 = -4...如此迭代运算
 -----------------
-   filter(key1, iterable1)                # 对可迭代体进行筛选操作，注意函数返回值是布尔类型
+   filter( , iterable1)                # 对可迭代体进行筛选操作，注意函数返回值是布尔类型
    sorted(iterable1,key1,Reverse=True)    # 对可迭代体进行排序操作
 
 【递归函数】和java是一样的，自己调用自己
@@ -26,16 +26,16 @@ print(result)
 
 # 匿名函数示例2
 list2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-result = map(lambda x: x if x % 2 == 0 else x + 100, list2)  # 迭代器如果，list2中的数据为奇数，则加100
+result = map(lambda x: x if x % 2 == 0 else x + 100, list2)  # 便历操作，如果list2中的数据为奇数，则加100
 print(list(result))
 
 # 匿名函数示例3
 tuple1 = [1, 2, 3, 4, 5]
-result = reduce(lambda x, y: x - y, tuple1)
+result = reduce(lambda x, y: x - y, tuple1)  # 迭代操作
 print(result)
 
 # 匿名函数示例4
 list3 = [{'name': 'zzj', 'age': 20},{'name': 'lzy', 'age': 19}, {'name':'hyq','age': 13}]
-result2 = sorted(list3, key=lambda x : x['age'], reverse=True)
+result2 = sorted(list3, key=lambda x : x['age'], reverse=True)  # 排序操作
 print(result2)
 
