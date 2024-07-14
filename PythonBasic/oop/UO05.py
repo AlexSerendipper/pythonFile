@@ -1,86 +1,38 @@
-"""
-【面向对象】面向对象思想见java处，同样有属性和方法
- 所有类名要求首字母大写，如TypeError
- 所有的类都继承自Object类
-class 类名:                # 创建类
-    属性
-    方法
-
-对象1 = 类名()              # 创建对象
-
-【类属性】
- python只分为对象属性和类属性不像，java中还有静态属性，常量等
-  在类中声明的属性称为类属性
-  生成对象后添加的属性称为对象属性
- 对象1.属性 = x            # 调用当前对象的属性，与java很大的区别是：
-                             如果不存在相关属性。这样操作可以往当前对象中添加属性，而不会报错
- __属性                   # ✔✔通过在属性前加双杠，把属性变为私有（相当于java的private)
-
-【普通类方法】
-def func(self)             # 此处的self相当于java的this，用于指向当前对象。主要用途也相同，用来区分类的属性 和 局部变量的
+""" 继承
+【继承】继承的思想和java是一样的
+ 子类无法继承父类的私有属性
+class Subclass(SuperClass):
     pass
 
-【构造器方法】python中把  __xxx__  这种格式的方法都叫魔术方法，无语
-def __init__(self,name,age):
-    self.name = name
-    self.age = age
+【多继承】java中只有接口有多继承，而python中类也可以多继承
+class Parent1():
+    pass
+class Parent2():
+    pass
+class Child(Parent1,Parent2):
     pass
 
-【类方法】类似于java的静态方法
- 类方法随着类的创建而创建，类方法中能访问该类原本就有的属性！
-和java的静态方法还不完全一样，java的静态方法只能访问静态属性，python都没有静态属性这个说法
+cc = Child
+cc.__mro__               # 该方法能够查看搜索顺序
+ 多继承的搜索顺序：如果两个父类中有同名方法，采用 从左至右，广度优先 的原则进行搜索，
+即在这种情况下，解释器首先搜索第一个父类，然后是第二个父类，依此类推，在完成一轮搜索后，才会去搜索父类的父类。
 
-@classmethod
-def func(cls):
-    pass
-
-【静态方法】类似于java的静态方法一样，
- 静态方法不能直接访问或修改类或实例的属性或方法。静态方法通常用于执行与类和实例无关的操作，例如执行一些工具函数或辅助操作。
-和java的静态方法还不完全一样，java的静态方法只能访问静态属性，python都没有静态属性这个说法
-
-@staticmethod
-def func():                    # 没有cls
-    pass
-
-
-【静态方法与类方法的区别】
-不同:
-1、装饰器不同
-2、类方法是有参数的，静态方法没有参数
-3、静态方法不能直接访问或修改类或实例的属性或方法，类方法可以
-相同.
-2、都可以通过类名调用访问
-3、都可以在创建对象之前使用
-
+【方法重写】
+ 方法重写：在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将覆盖父类的方法。
+ 子类重写的方法必须和父类被重写的方法具有相同的方法名称、参数列表
 """
 
 
-class Person:
-    __name = 'zzj'
-    __age = 23
-
-    def __init__(self, name, age):
-        self.__name = name
-        self.__age = age
-
-    def getname(self):
-        print(self.__name)
-        self.address = '深圳'
-        print("实例方法")
-
-    def setname(self, name):
-        self.__name = name
-
-    @classmethod
-    def func(cls):
-        print(cls.__name)
-
-    @staticmethod
-    def fuc():
-        print(__name)
+class Parent():
+    def eat(self, food):
+        print(food)
 
 
-lzy = Person('lzy', 19)
-lzy.getname()
-lzy.setname('zzj')
-lzy.getname()
+class Child(Parent):
+    def eat(self, food):
+        print(food)
+        print("son")
+
+
+zzj = Child()
+zzj.eat('苹果')

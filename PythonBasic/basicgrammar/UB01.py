@@ -34,20 +34,6 @@
    setting-project-python interpreter-new environment，创建一个新的python环境。。这样指定后会创建一个.venv文件在项目中，表示新的python解释环境
      建议使用existing interpreter，找到本机安装python时的python.exe，使用本地环境
 
-【基础函数】
- type(变量名)                    // 返回变量类型
-  isinstance(变量名, 类型)        // 判断变量类型
- print("内容",变量名)            // 输出，可以使用逗号输出多个参数，多个参数输出时默认分隔符为空格，结尾默认为\n
-  print(变量名1,变量名2,sep="#")          // 输出，多个参数输出时指定分隔符
-  print(变量名1,end=" ")          // 输出，多个参数输出时指定结尾！
- input("提示信息")               // 标准的输入流，相当于java中的sc.next()✔✔✔，区别是可以输入提示信息
- id(变量名)                      // 输出变量的内存地址，java中打印引用数据类型，默认打印的是地址值✔✔✔
-                                     py中打印int、float、double、String、列表、字典、元组直接打印均为字面量。
-
-【常用包】后续会总结
-import random
-random.randint(a,b)              # 产生[a,b]之间的随机数
-
 """
 print("hello world")
 tuple1 = (1, 2, 3)

@@ -1,25 +1,32 @@
 """ 内部函数，即在函数里再定义一个函数
 【内部函数】
-a = 100
-print(globals())  # 可以查看全局变量有哪些
-def func():
-    n = 100  # 声明局部变量
-    list1 = [1,2,3]  # 声明局部变量
-
-    # 声明内部函数，方便用于对局部变量进行操作！！
-    # 内部函数中声明的变量仍属于令一层局部变量，因此在内部函数的局部域中，无法修改n(不可变类型)，但可以修改list1(可变类型)
-      如果要修改外层局部变量n的值，需要在内部函数声明之初声明 nonlocal n
-      如果要修改全局变量a的值，也是要在内部函数声明之初声明 global a
-    def inner_func():
-        pass
-
-    # 调用内部函数
-    inner_func()
-
-    # 使用locals()内置函数，可以看到在当前函数中声明的内容有哪些，返回值为字典形式
-    print(locals())
-
 1）两个内部函数之间是可以相互调用的
+-----------------------
+n = 1                             # 全局变量n
+print(globals())                  # 可以查看全局变量有哪些
+def a():
+    n = 'a内'                     # 局部变量n。。如果要修改全局变量a的值，也是要在内部函数声明之初声明 global n
+    list1 = [1,2,3]
+    def b():
+        nonlocal n                # nonlocal即声明该内部函数的局部变量，与其最近的一个外层函数的同名局部变量 引用同一个地址
+        n = 'b内'
+        print(n)
+        def c():
+            n = 11                # 没有声明nonlocal，相当于重新申请了一个局部变量n
+            list1.append(6)       # 对于可变类型数据，是可以直接修改的~
+            print(locals())       # 使用locals()内置函数，可以看到在当前函数中声明的内容有哪些，返回值为字典形式
+            print(n)
+        c()
+    b()
+    print(n)
+    print(list1)
+a()
+输出结果如下：
+b内
+11
+b内
+[1, 2, 3, 1]
+-----------------------
 
 【闭包】
 # 定义了内部函数后，并且内部函数引用了外部函数的变量值，使用return将内部函数抛出，称为闭包
@@ -28,7 +35,6 @@ def func(a):
     def inner_func():
         print(a+b)   # 引用a或b都算闭包
         pass
-
     return inner_func
 
 x = func(5)
@@ -89,27 +95,41 @@ usb()
 3) 可以对被装饰函数添加多个装饰器，执行顺序为越靠近被装饰函数声明位置的越先被执行
 4) 如果"新增加的功能"是动态的，也可以给装饰器传参数，@decoration(参数1)
    此时需要在原有的装饰函数外再嵌套一层（负责接收装饰器参数），并将原装饰函数抛出，才能实现相关功能
+
+
+【常用装饰器】
+1) @property：使一个类方法可以像属性一样被使用，而不需要在调用的时候带上()
+-----------------------------
+
+class Person():
+    def __init__(self, first_name, last_name):
+        self.first = first_name
+        self.last = last_name
+
+    @property                                                 # 让fullname这个方法可以以属性的方式被调用
+    def fullname(self):
+        return self.first + ' ' + self.last
+
+    @fullname.setter                                          # setter方法需要和 @property修饰的方法具有相同的名字
+    def fullname(self, name):                                   它会将用户传给.fullname属性的值，作为参数参数这个函数（在此处就实现了根据传入的fullname，自动修改first和lastname
+        first_name, last_name = name.split(' ')
+        self.first = first_name
+        self.last = last_name
+
+
+zzj = Person('钟', '郑建')
+print(zzj.fullname)
+zzj.fullname = '钟 郑淮'
+print(zzj.fullname)
+-----------------------------
 """
-
-
-# 内部函数示例
-def func():
-    a = 11
-
-    def inner_func():
-        print(a)
-
-    return inner_func
-
-
-x = func()
-x()
 
 
 # 装饰器示例
 def decorate(func):
     a = 100
     print(111111)
+
     def wrapper():
         print("USB准备连接..")
         func()
@@ -118,6 +138,7 @@ def decorate(func):
     print(222222)
     return wrapper
 
+
 @decorate
 def usb():
     print("USB正在连接..")
@@ -125,24 +146,33 @@ def usb():
 
 usb()
 
-
 # 带参装饰器示例
 print("-----------------------------")
+
+
 def outer2(x):
     def decorate2(func):
         a = 100
         print(11111)
         print(x)
+
         def wrapper2():
             print("USB准备连接..")
             func()
             print("USB连接完成..")
+
         print(22222)
         return wrapper2
+
     return decorate2
+
 
 @outer2("带参装饰器的使用")
 def usb():
     print("USB正在连接..")
 
+
 usb()
+
+
+

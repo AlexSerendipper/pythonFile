@@ -1,4 +1,4 @@
-"""list、tuple、set、dict等容器共性
+"""list、tuple、set、dict等容器共性1
 【共同函数】针对list、tuple、set
  str1 in list1/tuple1/set1          # 判断str1是否为容器中的元素
  max(list1/tuple1/set1)             # 找出容器中的最大值
