@@ -25,7 +25,7 @@ def func(self)             # 此处的self相当于java的this，用于指向当
    python中，后创建的同名方法 会 覆盖先创建的同名方法！！！！！！
 
 【构造器方法】python中把  __xxx__  这种格式的方法都叫魔术方法，无语
-1) 初始化魔术方法，这个就完全相当于java的构造器了！！！
+1) 初始化魔术方法，这个就完全相当于java的构造器了！！！但是python中只允许单构造器
 def __init__(self,name,age):
     self.name = name
     self.age = age
@@ -58,7 +58,7 @@ def func(cls):
 
 【静态方法】类似于java的静态方法一样，
  静态方法不能直接访问或修改类或实例的属性或方法。静态方法通常用于执行与类和实例无关的操作，例如执行一些工具函数或辅助操作。
-和java的静态方法还不完全一样，java的静态方法只能访问静态属性，python都没有静态属性这个说法
+  和java的静态方法还不完全一样，java的静态方法只能访问静态属性，python都没有静态属性这个说法
 
 @staticmethod
 def func():                    # 没有cls

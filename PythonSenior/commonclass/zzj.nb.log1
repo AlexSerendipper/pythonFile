@@ -1,0 +1,16 @@
+2024-07-21 17:56:28|   DEBUG|UC02.py[:132]|this is a debug log
+2024-07-21 17:56:28|    INFO|UC02.py[:133]|this is a info log
+2024-07-21 17:56:28| WARNING|UC02.py[:134]|this is a warning log
+2024-07-21 17:56:28|   ERROR|UC02.py[:135]|this is a error log
+2024-07-21 18:00:29|   ERROR|UC02.py[:179]|invalid literal for int() with base 10: 'abc'
+2024-07-21 18:00:29|   ERROR|UC02.py[:180]|invalid literal for int() with base 10: 'abc'
+Traceback (most recent call last):
+  File "D:\PycharmWorkspace\PythonSenior\commonclass\UC02.py", line 177, in <module>
+    int("abc")
+ValueError: invalid literal for int() with base 10: 'abc'
+2024-07-21 18:05:23|   ERROR|UC02.py[:186]|invalid literal for int() with base 10: 'abc'
+2024-07-21 18:05:23|   ERROR|UC02.py[:187]|invalid literal for int() with base 10: 'abc'
+Traceback (most recent call last):
+  File "D:\PycharmWorkspace\PythonSenior\commonclass\UC02.py", line 184, in config_log
+    int("abc")
+ValueError: invalid literal for int() with base 10: 'abc'

@@ -1,5 +1,5 @@
 """ 继承
-【继承】继承的思想和java是一样的
+【继承概述】继承的思想和java是一样的
  子类无法继承父类的私有属性
 class Subclass(SuperClass):
     pass

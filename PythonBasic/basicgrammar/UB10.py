@@ -1,4 +1,4 @@
-""" ist、tuple、set、dict等容器共性2:生成器和迭代器
+""" list、tuple、set、dict等容器共性2:生成器和迭代器
 【生成器概述】
 列表推导式，我们可以直接创建一个列表。但是每次列表推导式的创建都会在直接在底层申请完所有的内存空间
 所以，如果列表元素可以按照某种算法推算出来，就可以在循环的过程中不断推算出后续的元素呢。从而节省大量的空间。
@@ -43,6 +43,7 @@ def func()
    而生成器只能被迭代一次，因为它不保存整个序列，只保存当前的状态。
 4）生成器更加灵活，可以使用任何种类的控制流语句（如if、while等）。而迭代器则需要在__next__()方法中实现所有的控制流逻辑。
 总结来说，生成器是一种特殊的迭代器，
+
 """
 
 # 利用生成器产生斐波那契数列
@@ -78,25 +79,3 @@ g2.send('敏敏')
 g2.send('健健')
 
 
-# 线程通信示例
-def task1(n):
-    for i in range(n):
-        print("正在听第{}首歌".format(i))
-        yield None  # 只是用yield的暂停功能
-
-
-def task2(n):
-    for i in range(n):
-        print("正在搬第{}块砖".format(i))
-        yield None  # 只是用yield的暂停功能
-
-
-g1 = task1(10)
-g2 = task2(10)
-
-while True:
-    try:
-        next(g1)
-        next(g2)
-    except Exception as e:
-        pass

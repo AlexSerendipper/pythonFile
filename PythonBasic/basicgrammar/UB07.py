@@ -5,10 +5,6 @@
    max(tuple1)                         # 找出元组中的最大值
    element1 in dict1                   # 判断元素是否在字典的key值中出现
 
-【字典类型转换】
-   dict([tuple1,tuple2])               # 强制类型转换，将tuple1作为键，tuple2作为值，转换为字典，，（示例中的列表也可以换成元组）
-    dict([(1,2),(3,4),(5,6),(7,8)])     # 当元素成对出现时也能完成转换，格式为{1:2,3:4,5:6,7:8}
-
 【增/改】
    dict1[key1] = value1              # 如果字典中存在同名键值，则覆盖。否则新增
    dict1.update(dict2)               # 字典合并，同key的覆盖，不同key的新增
@@ -29,6 +25,9 @@ for key1 in dict1:                    # 默认遍历的是字典的key1。相当
 for key1,value1 in dict1.items():     # 同时遍历字典的key1和value1。items为列表中包含元组的形式，因此也可以一个个元组的遍历
 for value1 in dict1.values():         # 遍历字典的value1值。dict1.values()返回列表格式的值
 
+【字典类型转换】
+   dict([tuple1,tuple2])               # 强制类型转换，将tuple1作为键，tuple2作为值，转换为字典，，（示例中的列表也可以换成元组）
+    dict([(1,2),(3,4),(5,6),(7,8)])     # 当元素成对出现时也能完成转换，格式为{1:2,3:4,5:6,7:8}
 """
 dict1 = {'zzj': 100, 'lzy': 666}
 print(dict1.items())

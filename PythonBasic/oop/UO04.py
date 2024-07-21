@@ -1,4 +1,5 @@
 """ 封装
+【封装概述】
  实际上和定义一个javabean是非常像的，但是封装性没有java好，有带你伪私有
  在类属性和方法中，有名称修饰机制，利用该机制实现封装性
  __属性                   # ✔✔名称修饰（Name Mangling）机制：把属性/方法重命名
@@ -14,7 +15,7 @@ class Student:
         self.__age = age
 
     def setAge(self, age):
-        self.__age = age  # 类的内部仍能以__age的形式访问
+        self.__age = age    # 类的内部仍能以__age的形式访问
 
     def getAge(self):
         return self.__age

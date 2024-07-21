@@ -16,8 +16,6 @@
    set1 | set2              # 并集
     set1.union(set2)           作用同|号
 
-【类型转换】
-   set(list1)            # 将list1转换为set，并去除其中的重复元素
 【增】
    .add()                # 增加单个元素(无序)。
     .add(tuple1)           # 如果添加的为元组，则将tuple1整体视为一个元素加入
@@ -30,7 +28,7 @@
    .clear()              # 清空集合
 
 【set类型转换】
- list、tuple可以转换为set
+ list、tuple可以转换为set # 将list1转换为set，并去除其中的重复元素
 
 """
 set1 = {1, 2, 3}
