@@ -5,7 +5,7 @@
    在python中：package--subpackage--module(.py)
    为保证结构相同，此处使用如下对应关系构建python项目,相当于少细分了一层
     如JavaBasic(project)--basicgrammar(module)--usearray(package)--xx.java
-    PythonBasic(package)--basicgrammar(subpackage)--xx.py
+    PythonBasic(package)--basicgrammar(subpackage)--xx.py(module)
  2）package中有一个_init.py文件，在包被导入时，包里的__init__.py会被执行。而directory表示文件夹，其中所有的文件同级，不存在子目录的概念
   内容区别
  1）二者都是面向对象

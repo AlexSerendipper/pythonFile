@@ -1,0 +1,45 @@
+下载 白月SMS系统 压缩包 bysms.zip
+
+解压bysms.zip后，进入bysms目录，
+
+双击运行 runserver.bat 即可启动 白月SMS系统,
+
+登录
+然后可以浏览器访问 登录页面 http://127.0.0.1
+
+输入如下管理员账号
+
+
+用户名 ：byhy
+密码： 88888888
+即可登录
+
+
+
+
+常见问题 解决方案
+如果启动运行 出现闪退或者如下错误提示，很可能 是因为web服务的80端口已经被使用了。
+
+
+**!!! runtime error: invalid memory address or nil pointer dereference
+Serve HTTP on 0.0.0.0:80
+listen tcp 0.0.0.0:80: bind: An attempt was made to access a socket in a way forbidden by its access permissions
+两种解决方法：
+
+请检查关闭占用80端口的程序，可能是Apache、IIS等web服务。
+
+修改bysms使用的web 服务端口
+
+可以用 文本编辑器编辑 runserver.bat （如果你是Mac电脑，修改 runserver.sh）
+
+把下面这行
+
+
+bysms.exe 0.0.0.0:80
+修改为其他端口 比如 8047
+
+
+bysms.exe 0.0.0.0:8047
+保存后，重新运行 bysms
+
+注意：修改后访问网址，要加上端口号，比如 http://127.0.0.1:8047
