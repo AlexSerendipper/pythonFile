@@ -14,7 +14,7 @@
  conn = pymysql.connect(host='', port=3306, user='', passwd='', db='', charset='utf8', cursorclass=pymysql.cursors.DictCursor)         # 建立数据库连接，需要指定具体的数据库，指定使用dictCursor，则查询结果为字典形式（默认为元组形式
  cursor.execute("查询语句")
  conn.fetchone()                                # 查询后返回查询的一条记录
- conn.fetchall()                                # 查询后返回查询的所有记录
+ conn.fetchall()                                # 查询后返回查询的所有记录，指定DictCursor，则默认以[dict1,dict2]的形式返回
                                                     注意游标指向查询结果的一行，如果先使用了.fetchone()，然后.fetchall()的结果中不会包含之前的查询信息（相当于的遍历不回头
                                                     如果使用和java面向对象一样的思想，如果有一个 类的属性名 和 查询结果名一致，我们对查询结果(字典)进行拆包，直接赋值给类的对应构造器即可（没有java那么方便
  conn.fetchmany()                               # 查询后返回查询的一些记录
@@ -52,13 +52,16 @@ def insertTest():
         conn.close()
 
 
-def selectTest():
+
+def selectTest(ids):
     conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
     try:
         with conn.cursor() as cursor:
-            cursor.execute('select * from user')
-            for row in cursor:
-                print(row)
+            cursor.execute(f'SELECT * FROM USER WHERE id IN ({ids})')
+            res = cursor.fetchall()
+            return res
+            # for row in cursor:
+            #     print(row)
     except pymysql.MySQLError as err:
         print(err)
         conn.rollback()
@@ -66,5 +69,14 @@ def selectTest():
         conn.close()
 
 
+
 if __name__ == '__main__':
-    selectTest()
+    dict1 = [{"entity_id":"1"}, {"entity_id":"2"}]
+    # set1 = {"1","2"}
+    print({prize["entity_id"] for prize in dict1})
+    print(map(str, {prize["entity_id"] for prize in dict1}))
+    entity_ids = ",".join(map(str, {prize["entity_id"] for prize in dict1}))
+    print(entity_ids)
+    print(type(entity_ids))
+    res = selectTest(entity_ids)
+    print(res)

@@ -20,13 +20,14 @@
 【python安装】
  官网安装python3.6.5解释器后，内含：doc(帮助文档) + lib(内置库) + scripts(外置库命令，内含有pip.exe包管理器)
  安装后，解释器中含有python.exe以及pip.exe，代表可执行命令，常见命令如下
-   >python，因此在cmd中使用python命令进入python环境，写python程序
-   >python 文件名，使用python解释器解释特定的python源文件
-   >pip list，查看当前外置库中已安装的包
-   >pip install 文件名，代表在当前python解释器中安装指定外部包（从网络中下载）。
+   python，因此在cmd中使用python命令进入python环境，写python程序
+   python 文件名，使用python解释器解释特定的python源文件
+   pip list，查看当前外置库中已安装的包
+   pip install 文件名，代表在当前python解释器中安装指定外部包（从网络中下载）。
+     pip install 文件名 -i https://pypi.tuna.tsinghua.edu.cn/simple，可以指定下载源，让下载加速
     如pip install redis==3.2.0，表示安装redis，并指定版本号为3.2.0，不指定版本则默认安装最新版本
-   >pip freeze > requirement.txt，把当前解释器中所有的外置库中的包及对应版本号以txt文件的形式输出（方便程序在不同系统间的迁移）
-   >pip install -r requirements.txt，使用pip安装requirements,txt中依赖的文件
+   pip freeze > requirement.txt，把当前解释器中所有的外置库中的包及对应版本号以txt文件的形式输出（方便程序在不同系统间的迁移）
+   pip install -r requirements.txt，使用pip安装requirements,txt中依赖的文件
  注意：使用pip安装的外置包位于\Lib\site-packages中
 
 【pycharm相关】

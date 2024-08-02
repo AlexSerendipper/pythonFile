@@ -22,8 +22,8 @@
 python -m pytest会将当前目录，也即D:\PycharmWorkspace 添加到搜索路径当中，所以能导入成功
 -------------------------
 
-【数据驱动】
- @pytest.mark.parametrize()          # 使用该装饰器传递参数，可以进一步简化流程
+【数据驱动】见test_错误登录2
+ @pytest.mark.parametrize()          # 使用该装饰器传递参数，可以一次性传入多组参数，可以进一步简化流程
 
 【调试】
  左上角+号，选择edit configurations，添加python tests，选择module - pytest
