@@ -18,6 +18,9 @@
  chr(int)                       // 传入数字，根据Unicode码转换为字母
   ord(char)                      // 传入字母，根据Unicode码转换为数字
  bin()/hex()/oct()              // 格式转换类...
+ eval()                         # eval函数用于动态地执行表达式字符串，并返回表达式的结果。res = "2 + 3 * 4"，结果为14
+ zip(iter1,iter2)               # zip函数将两个（或更多个）可迭代对象（如列表、元组）中的元素一一配对，生成一个由元组组成的迭代器。如 iter1 = ['gold', 'silver', 'bronze']，iter2 = [100, 50, 25]
+                                    print(list(zip(iter1,iter2)))，结果为[('gold', 100), ('silver', 50), ('bronze', 25)]
 
 【sys】python运行环境模块
  sys.path()               # 返回搜索路径，搜索时会按照列表中的路劲依次进行查找。
@@ -190,4 +193,4 @@ def config_log():
 
 
 if __name__ == '__main__':
-    config_log()
+    pass
