@@ -23,5 +23,5 @@ raise 异常类型1("错误提示信息")              # 主动抛出异常
 """
 
 
-class excep():
+def excep():
     raise Exception("嘿嘿")

@@ -42,8 +42,8 @@ math.fsum(iterable)  # ‌返回可迭代对象中所有值的精确浮点数和
                                                                                                 ✔ indent顾名思义，这个参数用于控制缩进格式。如果它的值是一个非负整数，输出的JSON字符串就会分行缩进。如果它的值为None，默认不缩进。
                                                                                                 separators序列化之后的字符串中不同部分的分隔符。默认为(','和':')。
                                                                                                 ✔ sort_keys用于指定是否按照键进行排序，默认为False。
- json.loads(data)                                       # 将一个json编码的字符串解码为python对象（字典
- json.dump(data,fp)                                     # 将python对象序列化为json编码字符串并写入到文件中
+ json.loads(data)                                       # 将一个json格式的字符串解码为python对象（字典、列表、布尔型，具体取决于json格式字符串中包含的内容。。。通常都是解码为字典，因为json格式字符串长得和字典是很像的
+ json.dump(data,fp)                                     # 将python对象序列化为json格式的字符串并写入到文件中（如果是列表、布尔型等其他类型，就是直接外边加双引号，如果是字典类型，会把原先的单引号改为双引号，进行一些格式化操作）
                                                             fp = open('文件名','w')
  json.load(fp)                                          # 从一个文件中读取json数据
  字典和json格式的字符串格式是很像的，区别在于字典的键是单引号，json格式字符串是双引号
@@ -56,6 +56,7 @@ import json
 import math
 import random
 import re
+
 
 
 # re模块，匹配标签中的内容
@@ -86,7 +87,7 @@ print(ran1, ran2)
 # json模块,将字典转换为json格式的字符串
 data = {
     "name": "张三",
-    "age": 18,
+    'age': 18,
     "hobbies": ["reading", "music"],
     "info": {
         "address": "北京市朝阳区",
@@ -99,3 +100,9 @@ print(type(data))
 print(type(json_str))
 json_obj = json.loads(json_str)
 print(type(json_obj))
+
+
+list = [1,2,3]
+s = json.dumps(list)
+print(s)
+print(type(s))

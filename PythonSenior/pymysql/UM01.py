@@ -13,11 +13,15 @@
  查询操作通常不涉及回滚，查询时不需要返回result
  conn = pymysql.connect(host='', port=3306, user='', passwd='', db='', charset='utf8', cursorclass=pymysql.cursors.DictCursor)         # 建立数据库连接，需要指定具体的数据库，指定使用dictCursor，则查询结果为字典形式（默认为元组形式
  cursor.execute("查询语句")
- conn.fetchone()                                # 查询后返回查询的一条记录
- conn.fetchall()                                # 查询后返回查询的所有记录，指定DictCursor，则默认以[dict1,dict2]的形式返回
-                                                    注意游标指向查询结果的一行，如果先使用了.fetchone()，然后.fetchall()的结果中不会包含之前的查询信息（相当于的遍历不回头
-                                                    如果使用和java面向对象一样的思想，如果有一个 类的属性名 和 查询结果名一致，我们对查询结果(字典)进行拆包，直接赋值给类的对应构造器即可（没有java那么方便
- conn.fetchmany()                               # 查询后返回查询的一些记录
+ cursor.fetchone()                                # 查询后返回查询的一条记录，返回单个元组，可以多次循环调用，直到为空。
+ cursor.fetchall()                                # 查询后返回查询的所有记录（以元组的形式返回，可以直接打印，也可以通过[0][1]的方式调用）
+                                                      注意游标指向查询结果的一行，如果先使用了.fetchone()，然后.fetchall()的结果中不会包含之前的查询信息（相当于的遍历不回头
+                                                      如果使用和java面向对象一样的思想，利用查询结果创建对象，如果有一个 类的属性名 和 查询结果名一致，我们对查询结果(字典)进行拆包，直接赋值给类的对应构造器即可（没有java那么方便
+ conn.fetchmany(size=)                            # 查询后返回查询的一些记录，可以指定大小
+ 注意，当查询字段为varchar类型时，pymysql中也要为变量加引号
+     act_sign = "'FtestAutoTest'"                                      # 方式一：直接在字符串中加引号
+     f"select id from business where budget_id = '{act_sign}'"         # 方式二：在查询语句中加引号
+
 
 【快速插入】
 1. 使用properties文件，从文件中读取的方式快速创建sql连接
