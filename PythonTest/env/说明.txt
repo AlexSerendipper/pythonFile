@@ -42,4 +42,8 @@ bysms.exe 0.0.0.0:80
 bysms.exe 0.0.0.0:8047
 保存后，重新运行 bysms
 
+
+#### 补充
+https://www.byhy.net/py/django/doc_api_v1_2/         接口文档
+
 注意：修改后访问网址，要加上端口号，比如 http://127.0.0.1:8047

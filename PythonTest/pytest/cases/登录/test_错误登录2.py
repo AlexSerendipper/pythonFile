@@ -4,7 +4,7 @@
 @Author:alexzhong
 """
 import pytest
-from PythonTest.PyTest.lib.loginAndCheck import loginAndCheck
+from PythonTest.pytest.lib.loginAndCheck import loginAndCheck
 
 # 分开写：
 class Test_错误登录:

@@ -36,9 +36,10 @@ math.fsum(iterable)  # ‌返回可迭代对象中所有值的精确浮点数和
  re.split('pattern1',str3)                     # 只要在str3中匹配到pattern1，就进行切割。切割结果以列表的形式返回
 
 【json】编码和解码json对象。D:\\IdeaWorkspace\\JavaWeb\\ajax\\src\\main\\java\\ajax\\UA01.java
- json.dumps(data,skipkeys=,ensure_ascii=,ensure_ascii=,separators=,sort_keys=,)             # 将python对象序列化为json编码字符串，通常都不需要传参
+ json.dumps(data,skipkeys=,ensure_ascii=,ensure_ascii=,separators=,sort_keys=,)             # 将python对象序列化为json编码字符串，如果有引号等格式问题会自动修正，中文会转换为对应的unicode编码
+                                                                                                通常都不需要传参（常见参数如下
                                                                                                 skipkeys如果遇到某些非法格式的Python数据类型，则抛出TypeError异常。如果skipkeys为True，这些非法格式的数据类型将被跳过，不会引发TypeError异常，默认值为False。
-                                                                                                ensure_ascii默认True，它保证输出的每个字符都是ASCII字符。如果有些字符不能被编码成ASCII字符，它们会被转义为Unicode转义字符。
+                                                                                                ensure_ascii默认True，它保证输出的每个字符都是ASCII字符（中文会转换为对应的编码）。如果有些字符不能被编码成ASCII字符，它们会被转义为Unicode转义字符。
                                                                                                 ✔ indent顾名思义，这个参数用于控制缩进格式。如果它的值是一个非负整数，输出的JSON字符串就会分行缩进。如果它的值为None，默认不缩进。
                                                                                                 separators序列化之后的字符串中不同部分的分隔符。默认为(','和':')。
                                                                                                 ✔ sort_keys用于指定是否按照键进行排序，默认为False。
